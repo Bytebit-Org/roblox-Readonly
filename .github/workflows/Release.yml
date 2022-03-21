@@ -1,0 +1,25 @@
+name: Release
+
+on: [workflow_dispatch]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install NodeJS
+        uses: actions/setup-node@master
+        with:
+          node-version: 12.16.2
+          registry-url: 'https://registry.npmjs.org'
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+      - name: install roblox-ts
+        run: npm i -g roblox-ts
+      - name: install local npm packages
+        run: npm i --production=false
+      - name: publish to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
