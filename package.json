@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/readonly",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Just a simple function that is really only useful in roblox-ts for forcing the value to be inferred as readonly.",
   "main": "out/init.lua",
   "scripts": {
