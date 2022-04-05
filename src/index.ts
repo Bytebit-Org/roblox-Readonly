@@ -1,1 +1,1 @@
-export * from "functions/Readonly";
+export * from "./functions/Readonly";
